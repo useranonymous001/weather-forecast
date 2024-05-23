@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Current Weather</title>
+  </head>
+  <style>
+    body,
+    html {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: linear-gradient(to bottom, #282929, #6d6f78);
+      color: #333;
+      font-family: "Arial", sans-serif;
+      flex-direction: column;
+    }
+    .container {
+      box-sizing: border-box;
+      padding: 20px;
+      width: 350px;
+      /* background-color: rgba(196, 14, 14, 0.8); */
+      background: linear-gradient(to bottom, #74ebd5, #acb6e5);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+    h1 {
+      color: #333;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(39, 34, 34, 0.1);
+    }
+    .weather-icon {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 20px;
+    }
+    .info {
+      margin: 10px 0;
+      font-size: 1.3em;
+      color: #555;
+    }
+    .temp {
+      font-size: 2.5em;
+      font-weight: bold;
+      color: #222;
+      margin: 0;
+    }
+    .humidity-wind {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .wind {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-direction: column;
+      /* margin-bottom: 0; */
+    }
+    .info2 {
+      margin: 0;
+    }
+    .wind-div img,
+    .humidity-div img {
+      width: 1.8em;
+      object-fit: contain;
+      object-position: center;
+      margin: 0;
+      padding: 0;
+      vertical-align: center;
+    }
+    .title {
+      color: white;
+      margin-bottom: 10px;
+      font-size: 2.2em;
+    }
+    .weather-icon {
+      margin: 0;
+      padding: 0;
+      object-fit: contain;
+      object-position: center;
+    }
+    .search-bar {
+      display: flex;
+      gap: 20px;
+      /* background-color: red; */
+    }
+    .search-box {
+      border-radius: 20px;
+      outline: 0;
+      background: #ebfffc;
+      color: #555;
+      padding: 10px 25px;
+      height: 20px;
+      flex: 1;
+      font-size: 18px;
+      border: 0;
+    }
+    .search-btn {
+      width: 16px;
+      object-fit: contain;
+      object-position: center;
+    }
+    button {
+      border: 0;
+      outline: 0;
+      background: #ebfffc;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      transition: 0.5s;
+    }
+    button:hover {
+      background-color: black;
+    }
+    /* Footer CSS */
+    .footer {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer p {
+      margin: 5px 0;
+    }
+
+    .footer a {
+      color: #74ebd5;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    .navbar ul a {
+      color: white;
+      font-size: 1.2em;
+      text-decoration: none;
+    }
+    .navbar ul {
+      text-decoration: none;
+      list-style: none;
+      display: flex;
+
+      justify-content: space-around;
+      align-items: center;
+    }
+    .navbar {
+      width: 100%;
+      background-color: rgb(61, 57, 57);
+    }
+  </style>
+
+  <body>
+    <nav class="navbar">
+      <ul>
+        <li><a href="/weather_app.html">Home</a></li>
+        <li><a href="/weather_app.html">About</a></li>
+        <li>
+          <a href="https://www.weatherapi.com/docs/" target="_blank"
+            >API Documentation</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <h1 class="title">Weather App</h1>
+    <div class="container">
+      <div class="search-bar">
+        <input type="text" name="search-box" class="search-box" />
+        <button><img src="/images/search.png" class="search-btn" /></button>
+      </div>
+      <img src="/images/clouds.png" alt="weather-icon" class="weather-icon" />
+      <div class="info">
+        <h1 class="temp">21 °C</h1>
+      </div>
+      <div class="country-name">
+        <h1 class="country">United Kingdom</h1>
+        <p class="city info">London</p>
+      </div>
+      <div class="humidity-wind">
+        <div class="humidity-div">
+          <p class="humidity">68 g/kg</p>
+          <img src="/images/humidity.png" alt="" />
+          <p class="info2">Humidity</p>
+        </div>
+        <div class="wind-div">
+          <p class="wind">13 km/hr</p>
+          <img src="/images/wind.png" alt="wind image" />
+          <p class="info2">Wind</p>
+        </div>
+      </div>
+      <div class="alert info">No Alerts</div>
+    </div>
+    <!-- Footer HTML -->
+    <footer class="footer">
+      <p>
+        Note: The data provided may be inaccurate. For more information, visit
+        the
+        <a href="https://www.weatherapi.com/docs/" target="_blank"
+          >API Documentation</a
+        >.
+      </p>
+      <p>&copy; 2024 Rohan Khatri</p>
+    </footer>
+
+    <script src="weather_app.js"></script>
+  </body>
+</html>
